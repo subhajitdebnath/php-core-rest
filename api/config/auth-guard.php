@@ -8,7 +8,15 @@
 
     $data = json_decode(file_get_contents("php://input"));
 
-    $arr = explode(" ", getallheaders()['Authorization']);;
+    if(!isset(getallheaders()['Authorization'])) {
+        echo json_encode(array(
+                "message" => "Access denied.",
+                "error" => "No Token Found"
+            )
+        );
+        die();
+    }
+    $arr = explode(" ", getallheaders()['Authorization']);
     $jwt = $arr[1];
 
     if($jwt){
@@ -25,7 +33,7 @@
 
         }catch (Exception $e){
 
-            http_response_code(401);
+            // http_response_code(401);
 
             echo json_encode(array(
                 "message" => "Access denied.",

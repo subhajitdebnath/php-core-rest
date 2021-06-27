@@ -1,29 +1,23 @@
 <?php
 	include_once './config/database.php';
 
-	$name = '';
-	$email = '';
-	$password = '';
-
 	$data = json_decode(file_get_contents("php://input"));
+
+	// print_r($data);die();
 
 	$name = $data->name;
 	$email = $data->email;
 	$password = $data->password;
+	$gender = $data->gender;
+	$city = $data->city;
 
-	$password_hash = password_hash($password, PASSWORD_BCRYPT);
-
-	$qry = "INSERT INTO `users` VALUES ('', '".$name."', '".$email."','".$password_hash."')";
+	$qry = "INSERT INTO `users` VALUES ('', '".$name."', '".$email."','".$password."', '".$gender."', '".$city."', 'active')";
 	$qry_exec = mysqli_query($con, $qry);
 
 	if($qry_exec){
-
-	    http_response_code(200);
 	    echo json_encode(array("message" => "User successfully registered."));
 	}
 	else{
-	    http_response_code(400);
-
 	    echo json_encode(array("message" => "Unable to register the user."));
 	}
 ?>

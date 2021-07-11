@@ -1,0 +1,32 @@
+Name: Social Network
+
+Functional Req: 
+- Authentication and Authorization
+- Manage Posts
+- Manage Comments
+- Like on post and comments
+- Managing Friends and Requests
+- Chat Application
+
+
+Database Design
+1. users
+
+2. posts {
+	id,
+	userId,
+	content,
+	createdBy,
+	createdAt,
+	status ['active', 'inactive']
+}
+
+3. comments {
+	id,
+	userId,
+	postId,
+	content,
+	createdBy,
+	createdAt,
+	status ['active', 'inactive']
+}

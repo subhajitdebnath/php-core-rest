@@ -2,21 +2,23 @@
     include_once './config/database.php';
     include_once './config/auth-guard.php';
 
-    $query = "SELECT * FROM `users`";
+    $data = json_decode(file_get_contents("php://input"));
+
+    $id = $data->id;
+
+    $query = "SELECT * FROM `users` WHERE `id` = ".$id;
     $qry_exec = mysqli_query($con, $query);
 
     $num = mysqli_num_rows($qry_exec);
 
-    $users = [];
-    while($row = mysqli_fetch_array($qry_exec)) {
-        $users[] = array('name' => $row['name'], 'email' => $row['email']);
-    }
+    $row = mysqli_fetch_array($qry_exec);
 
+    $user = array('id' => $row['id'], 'email' => $row['email'], 'name' => $row['name'], 'gender' => $row['gender'], 'city' => $row['city']);
 
     echo json_encode(
         array(
             "status" => "success",
-            "data" => $users
+            "data" => $user
         )
     );
 ?>

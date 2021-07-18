@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "acbdbe2a-c326-4d96-a769-9152d8d76802",
+		"name": "PHP-REST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Test User\",\r\n    \"email\": \"test@mail.com\",\r\n    \"password\": \"123456\",\r\n    \"gender\": \"male\",\r\n    \"city\": \"kolkata\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/php-rest/api/register.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php-rest",
+						"api",
+						"register.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@mail.com\",\r\n    \"password\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/php-rest/api/login.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php-rest",
+						"api",
+						"login.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Profile",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUSEVfSVNTVUVSIiwiYXVkIjoiVEhFX0FVRElFTkNFIiwiaWF0IjoxNjI1OTgyNjU5LCJuYmYiOjE2MjU5ODI2NTksImV4cCI6MTYyNjA2OTA1OSwiZGF0YSI6eyJpZCI6IjIiLCJuYW1lIjoiVGVzdCBVc2VyIiwiZW1haWwiOiJ0ZXN0QG1haWwuY29tIn19.C-2RfZgA5orybMTOioPonQSrCg-9l1z_9cQW0iYFBAw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/php-rest/api/user-profile.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php-rest",
+						"api",
+						"user-profile.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUSEVfSVNTVUVSIiwiYXVkIjoiVEhFX0FVRElFTkNFIiwiaWF0IjoxNjI1OTg0NjIzLCJuYmYiOjE2MjU5ODQ2MjMsImV4cCI6MTYyNjA3MTAyMywiZGF0YSI6eyJpZCI6IjIiLCJuYW1lIjoiVGVzdCBVc2VyIiwiZW1haWwiOiJ0ZXN0QG1haWwuY29tIn19.mYWzQw02y5W1aOwhr8Xub2zhRpOAX-8rNGGu3feRt0o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 1,\r\n    \"content\": \"test post 3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/php-rest/api/create-posts.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php-rest",
+						"api",
+						"create-posts.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUSEVfSVNTVUVSIiwiYXVkIjoiVEhFX0FVRElFTkNFIiwiaWF0IjoxNjI1OTg0NjIzLCJuYmYiOjE2MjU5ODQ2MjMsImV4cCI6MTYyNjA3MTAyMywiZGF0YSI6eyJpZCI6IjIiLCJuYW1lIjoiVGVzdCBVc2VyIiwiZW1haWwiOiJ0ZXN0QG1haWwuY29tIn19.mYWzQw02y5W1aOwhr8Xub2zhRpOAX-8rNGGu3feRt0o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/php-rest/api/get-user-posts.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php-rest",
+						"api",
+						"get-user-posts.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUSEVfSVNTVUVSIiwiYXVkIjoiVEhFX0FVRElFTkNFIiwiaWF0IjoxNjI2NTg3Nzk3LCJuYmYiOjE2MjY1ODc3OTcsImV4cCI6MTYyNjY3NDE5NywiZGF0YSI6eyJpZCI6IjIiLCJuYW1lIjoiVGVzdCBVc2VyIiwiZW1haWwiOiJ0ZXN0QG1haWwuY29tIn19.sAkEITpeMA40a3C5RXrZbFZHjKhNFNa3KpK-LYO1Dns",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/php-rest/api/get-all-posts.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php-rest",
+						"api",
+						"get-all-posts.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Comment",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUSEVfSVNTVUVSIiwiYXVkIjoiVEhFX0FVRElFTkNFIiwiaWF0IjoxNjI1OTg0NjIzLCJuYmYiOjE2MjU5ODQ2MjMsImV4cCI6MTYyNjA3MTAyMywiZGF0YSI6eyJpZCI6IjIiLCJuYW1lIjoiVGVzdCBVc2VyIiwiZW1haWwiOiJ0ZXN0QG1haWwuY29tIn19.mYWzQw02y5W1aOwhr8Xub2zhRpOAX-8rNGGu3feRt0o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 8,\r\n    \"postId\": 1,\r\n    \"content\": \"test comment 2 for post 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/php-rest/api/create-comment.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php-rest",
+						"api",
+						"create-comment.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Post Details",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUSEVfSVNTVUVSIiwiYXVkIjoiVEhFX0FVRElFTkNFIiwiaWF0IjoxNjI1OTg0NjIzLCJuYmYiOjE2MjU5ODQ2MjMsImV4cCI6MTYyNjA3MTAyMywiZGF0YSI6eyJpZCI6IjIiLCJuYW1lIjoiVGVzdCBVc2VyIiwiZW1haWwiOiJ0ZXN0QG1haWwuY29tIn19.mYWzQw02y5W1aOwhr8Xub2zhRpOAX-8rNGGu3feRt0o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/php-rest/api/get-post-details.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php-rest",
+						"api",
+						"get-post-details.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Post Comments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUSEVfSVNTVUVSIiwiYXVkIjoiVEhFX0FVRElFTkNFIiwiaWF0IjoxNjI2NTg2NTM1LCJuYmYiOjE2MjY1ODY1MzUsImV4cCI6MTYyNjY3MjkzNSwiZGF0YSI6eyJpZCI6IjIiLCJuYW1lIjoiVGVzdCBVc2VyIiwiZW1haWwiOiJ0ZXN0QG1haWwuY29tIn19.RRDNohLQaHsFcuxJol5-HT9FFoxkQN-e3ofon4YjT8M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/php-rest/api/get-post-comments.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"php-rest",
+						"api",
+						"get-post-comments.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

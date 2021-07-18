@@ -4,7 +4,15 @@
 
     $query = "
             SELECT
-             * 
+                `posts`.`id` AS `postId`,
+                `posts`.`content` AS `content`,
+                `posts`.`createdBy` AS `createdBy`,
+                `posts`.`createdAt` AS `createdAt`,
+                `users`.`id` AS `userId`,
+                `users`.`name` AS `name`,
+                `users`.`email` AS `email`,
+                `users`.`gender` AS `gender`,
+                `users`.`city` AS `city`
             FROM 
                 `posts`, 
                 `users` 
@@ -20,8 +28,8 @@
     while($row = mysqli_fetch_array($qry_exec)) {
 
         $posts[] = array(
-            'id'=>$row['id'],
-            'user'=>array(
+            'id'=>$row['postId'],
+            'createdBy'=>array(
                 'userId'=>$row['userId'], 
                 'name'=>$row['name'], 
                 'email'=>$row['email'], 
@@ -29,7 +37,6 @@
                 'city'=>$row['city'], 
             ),
             'content'=>$row['content'],
-            'createdBy'=>$row['createdBy'],
             'createdAt'=>$row['createdAt']
         );
 

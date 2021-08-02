@@ -16,20 +16,22 @@
 
     $qry = "
         SELECT *
-        FROM (SELECT 
-                * 
-            FROM 
-                `messages` 
-            WHERE 
-            `fromUserId` = ".$fromUserId." AND 
-            `toUserId` = ".$toUserId." UNION 
-            SELECT 
-                * 
-            FROM 
-                `messages` 
-            WHERE 
-            `fromUserId` = ".$toUserId." AND 
-            `toUserId` = ".$fromUserId.") a
+        FROM (
+                SELECT 
+                    * 
+                FROM 
+                    `messages` 
+                WHERE 
+                `fromUserId` = ".$fromUserId." AND 
+                `toUserId` = ".$toUserId." 
+            UNION 
+                SELECT 
+                    * 
+                FROM 
+                    `messages` 
+                WHERE 
+                `fromUserId` = ".$toUserId." AND 
+                `toUserId` = ".$fromUserId.") a
         ORDER BY `id` ASC"
         ;
     $q1 = mysqli_query($con, $qry);
